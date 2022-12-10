@@ -1,6 +1,12 @@
 import streamlit as st
 import pandas as pd
 
+hide_menu_style = """
+        <style>
+        #MainMenu {visibility: hidden;}
+        </style>
+        """
+st.markdown(hide_menu_style, unsafe_allow_html=True)
 
 def f_side():
     #st.sidebar.image("https://as2.ftcdn.net/v2/jpg/05/23/82/65/1000_F_523826590_gkVPPuLEG4aijfh8bJviQCJH6oSERwlb.jpg", width=150)

@@ -53,7 +53,7 @@ with col1:
         st.session_state["vacina"] = False
         st.session_state["obesidade"] = False
         st.session_state["raca"] = "Selecione"
-        'st.session_state["zona"] = "Selecione"
+        #st.session_state["zona"] = "Selecione"
         st.session_state["asma"] = False
         st.session_state["diabetes"] = False
 

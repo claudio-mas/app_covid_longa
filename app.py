@@ -19,17 +19,21 @@ def f_dados_paciente():
         key="sexo", label_visibility='visible', disabled=False, horizontal=True)
     raca_pac = st.sidebar.selectbox("Raça",("Selecione", "Branca", "Preta", "Amarela","Parda","Indígena","Ignorado"),
         key="raca")
-    zona_pac = st.sidebar.selectbox("Zona",("Selecione", "Urbana", "Rural", "Periurbana","Ignorado"),
-        key="zona")
+    # zona_pac = st.sidebar.selectbox("Zona",("Selecione", "Urbana", "Rural", "Periurbana","Ignorado"),
+    #     key="zona")
     vac_pac = st.sidebar.checkbox('Recebeu vacina', key='vacina')
     obes_pac = st.sidebar.checkbox('Obesidade', key="obesidade")
     asma_pac = st.sidebar.checkbox('Asma', key="asma")
     diab_pac = st.sidebar.checkbox('Diabetes', key="diabetes")
 
     dir_pac = {'Nome': nome_pac, 'Idade': idade_pac, 'Sexo': sexo_pac, 'Raça': raca_pac,
-    'Zona': zona_pac,'Vacina': vac_pac, 'Obesidade': obes_pac, 'Asma': asma_pac, 'Diabetes': diab_pac}
+    'Vacina': vac_pac, 'Obesidade': obes_pac, 'Asma': asma_pac, 'Diabetes': diab_pac}
     features=pd.DataFrame(dir_pac, index=[0])
     return features
+
+def f_modelo():
+    df = pd.read_csv('dados_agrupados.csv', delimiter=';', quotechar='"')
+    return df
 
 x = f_side()
 x = f_dados_paciente()
@@ -49,7 +53,7 @@ with col1:
         st.session_state["vacina"] = False
         st.session_state["obesidade"] = False
         st.session_state["raca"] = "Selecione"
-        st.session_state["zona"] = "Selecione"
+        'st.session_state["zona"] = "Selecione"
         st.session_state["asma"] = False
         st.session_state["diabetes"] = False
 
@@ -61,6 +65,7 @@ with col1:
         st.balloons()
         st.success('Sem covid longa   :)')
         st.warning('Covid longa   :(')
+        df = f_modelo()
 
 with col2:
     #st.image("https://as1.ftcdn.net/jpg/03/07/43/75/240_F_307437510_x6kug0WyeBJQjzhjVs3jTbIQkpJBDPP1.jpg", width=300)

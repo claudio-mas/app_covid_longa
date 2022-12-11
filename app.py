@@ -22,6 +22,7 @@ def f_dados_paciente():
     # zona_pac = st.sidebar.selectbox("Zona",("Selecione", "Urbana", "Rural", "Periurbana","Ignorado"),
     #     key="zona")
     vac_pac = st.sidebar.checkbox('Recebeu vacina', key='vacina')
+    st.sidebar.text='Fatores de Risco:'
     obes_pac = st.sidebar.checkbox('Obesidade', key="obesidade")
     asma_pac = st.sidebar.checkbox('Asma', key="asma")
     diab_pac = st.sidebar.checkbox('Diabetes', key="diabetes")

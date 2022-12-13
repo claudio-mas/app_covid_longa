@@ -65,15 +65,24 @@ with col1:
 
     #st.write(x)
 
-    if st.button("Confirmar"):
-        st.balloons()
-        st.success('Sem covid longa   :)')
-        st.warning('Covid longa   :(')
-        df = f_modelo()
+    # if st.button("Confirmar"):
+    #     st.balloons()
+    #     st.success('Sem covid longa   :)')
+    #     st.warning('Covid longa   :(')
+    #     df = f_modelo()
   
 
 with col2:
     #st.image("https://as1.ftcdn.net/jpg/03/07/43/75/240_F_307437510_x6kug0WyeBJQjzhjVs3jTbIQkpJBDPP1.jpg", width=300)
     col2.markdown("""<p><img style="float: right;" src="https://as1.ftcdn.net/jpg/03/07/43/75/240_F_307437510_x6kug0WyeBJQjzhjVs3jTbIQkpJBDPP1.jpg" alt="" width="240" height="240" /></p>""", unsafe_allow_html=True)
-    st.button("Nova ficha", on_click=clear_text)
+    
+
+if st.button("Confirmar"):
+    st.balloons()
+    st.success('Sem covid longa   :)')
+    st.warning('Covid longa   :(')
+    df = f_modelo()
+st.button("Imprimir")
+st.button("Nova ficha", on_click=clear_text)
+
     

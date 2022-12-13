@@ -48,10 +48,11 @@ with col1:
     """)
 
     st.subheader('Instruções:')
-    st.write("1- Preencher a ficha do paciente ao lado esquerdo desta tela")
-    st.write('2- Clique no botão <Confirmar> para ver o resultado da avaliação')
-    st.write('3- Clique no botão <Imprimir> para imprimir a ficha do paciente')
-    st.write('4- Clique no botão <Nova ficha> para finalizar esta ficha e abrir nova')
+    
+# st.write("1- Preencher a ficha do paciente ao lado esquerdo desta tela")
+# st.write('2- Clique no botão <Confirmar> para ver o resultado da avaliação')
+# st.write('3- Clique no botão <Imprimir> para imprimir a ficha do paciente')
+# st.write('4- Clique no botão <Nova ficha> para finalizar esta ficha e abrir nova')
 
     def clear_text():
         st.session_state["nome"] = ""
@@ -76,6 +77,10 @@ with col2:
     #st.image("https://as1.ftcdn.net/jpg/03/07/43/75/240_F_307437510_x6kug0WyeBJQjzhjVs3jTbIQkpJBDPP1.jpg", width=300)
     col2.markdown("""<p><img style="float: right;" src="https://as1.ftcdn.net/jpg/03/07/43/75/240_F_307437510_x6kug0WyeBJQjzhjVs3jTbIQkpJBDPP1.jpg" alt="" width="240" height="240" /></p>""", unsafe_allow_html=True)
     
+st.write("1- Preencher a ficha do paciente ao lado esquerdo desta tela")
+st.write('2- Clique no botão <Confirmar> para ver o resultado da avaliação')
+st.write('3- Clique no botão <Imprimir> para imprimir a ficha do paciente')
+st.write('4- Clique no botão <Nova ficha> para finalizar esta ficha e abrir nova')
 
 col3, col4, col5 = st.columns(3)
 with col3:

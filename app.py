@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import os
 import subprocess
+import webbrowser
 
 hide_menu_style = """
         <style>
@@ -94,8 +95,9 @@ with col3:
 
 with col4:
     if st.button("Imprimir"):
-        path = 'sistema.txt'
-        subprocess.Popen([path], shell=True)
+        path = 'ficha.pdf'
+        #subprocess.Popen([path], shell=True)
+        webbrowser.open_new(path)
         #os.system(path)
         #st.balloons()
 

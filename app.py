@@ -88,6 +88,7 @@ st.write('4- Clique no botão <Nova ficha> para finalizar esta ficha e abrir nov
 col3, col4, col5 = st.columns(3)
 with col3:
     if st.button("Confirmar"):
+        st.warning(x['idade'], icon="⚠️")
         st.balloons()
         st.success('Sem covid longa   :)')
         st.warning('Covid longa   :(')

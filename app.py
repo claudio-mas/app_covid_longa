@@ -88,11 +88,15 @@ st.write('4- Clique no botão <Nova ficha> para finalizar esta ficha e abrir nov
 col3, col4, col5 = st.columns(3)
 with col3:
     if st.button("Confirmar"):
-        st.warning(st.session_state["idade"]=='', icon="⚠️")
-        st.balloons()
-        st.success('Sem covid longa   :)')
-        st.warning('Covid longa   :(')
-        df = f_modelo()
+        if st.session_state["nome"]=='':
+            st.warning('Por favor, informe o nome do paciente', icon="⚠️")
+        elif st.session_state["idade"]=='':
+            st.warning('Por favor, informe a idade do paciente', icon="⚠️")    
+        else:
+            st.balloons()
+            st.success('Sem covid longa   :)')
+            st.warning('Covid longa   :(')
+            df = f_modelo()
 
 with col4:
     if st.button("Imprimir"):

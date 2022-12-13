@@ -87,8 +87,8 @@ with col3:
 
 with col4:
     if st.button("Imprimir"):
-        #arquivo = open('ficha.pdf', 'r')
-        st.balloons()
+        arquivo = open('ficha.pdf', 'r')
+        #st.balloons()
 
 with col5:
     st.button("Nova ficha", on_click=clear_text)

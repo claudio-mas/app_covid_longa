@@ -78,15 +78,15 @@ with col2:
     
 
 col3, col4, col5 = st.columns(3)
-with col1:
+with col3:
     if st.button("Confirmar"):
         st.balloons()
         st.success('Sem covid longa   :)')
         st.warning('Covid longa   :(')
         df = f_modelo()
-with col2:
+with col4:
     st.button("Imprimir")
-with col3:
+with col5:
     st.button("Nova ficha", on_click=clear_text)
 
     

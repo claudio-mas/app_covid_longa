@@ -36,11 +36,12 @@ def f_dados_paciente():
     imuno_pac = st.sidebar.checkbox('Imunodeficiência', key='imuno')
     obes_pac = st.sidebar.checkbox('Obesidade', key="obesidade")
     pneumo_pac = st.sidebar.checkbox('Outra Pneumatopatia Crônica', key='pneumo')
-    
+    sdown_pac = st.sidebar.checkbox('Síndrome de Down', key='sdown')
+
     dic_pac = {'Nome': nome_pac, 'Idade': idade_pac, 'Sexo': sexo_pac, 'Raça': raca_pac,
     'Vacina': vac_pac, 'Nosocomial': vac_nosocomial,'Cardiopatia': cardio_pac,
     'Diabetes': diab_pac,'Dispneia':dispneia_pac,'Hematologica':hemato_pac, 'Imunologica':imuno_pac,
-    'Neurologica': neuro_pac,'Obesidade': obes_pac,'Pneumatopatia':pneumo_pac,'Renal':renal_pac}
+    'Neurologica': neuro_pac,'Obesidade': obes_pac,'Pneumatopatia':pneumo_pac,'Renal':renal_pac,'SDown':sdown_pac}
 
     features=pd.DataFrame(dic_pac, index=[0])
     return features
@@ -50,7 +51,7 @@ def f_modelo():
     return df
 
 x = f_side()
-x = f_dados_paciente()
+df = f_dados_paciente()
 
 col1, col2 = st.columns(2)
 with col1:
@@ -81,8 +82,9 @@ with col1:
         st.session_state["pneumo"] = False
         st.session_state["obesidade"] = False
         st.session_state["renal"] = False
+        st.session_state["sdown"] = False
 
-    #st.write(x)
+    #st.write(df)
 
     # if st.button("Confirmar"):
     #     st.balloons()
@@ -107,6 +109,8 @@ with col3:
             st.warning('Por favor, informe o nome do paciente', icon="⚠️")
         elif st.session_state["idade"]=='':
             st.warning('Por favor, informe a idade do paciente', icon="⚠️")    
+        elif st.session_state["raca"]=='Selecione':
+            st.warning('Por favor, informe a raça do paciente', icon="⚠️")
         else:
             st.balloons()
             st.success('Sem covid longa   :)')

@@ -93,7 +93,7 @@ with col3:
 
 with col4:
     if st.button("Imprimir"):
-        path = 'ficha.pdf'
+        path = 'sistema.txt'
         os.system(path)
         #st.balloons()
 

@@ -28,15 +28,18 @@ def f_dados_paciente():
     vac_nosocomial = st.sidebar.checkbox('Infecção adquirida no hospital?', key='nosocomial')
     #st.sidebar.write('Fatores de risco:')
     st.sidebar.markdown(f'<h4 style="color: #ff0000;"><strong>Fatores de Risco:</strong></h4>', unsafe_allow_html=True)
-    cardio_pac = st.sidebar.checkbox('Doença Cardiovascular crônica', key="cardiopatia")
+    cardio_pac = st.sidebar.checkbox('Doença Cardiovascular Crônica', key="cardiopatia")
     diab_pac = st.sidebar.checkbox('Diabetes', key="diabetes")
     dispneia_pac = st.sidebar.checkbox('Dispneia', key="dispneia")
-    hemato_pac = st.sidebar.checkbox('Doença Hematológica crônica', key="hemato")
+    hemato_pac = st.sidebar.checkbox('Doença Hematológica Crônica', key="hemato")
+    imuno_pac = st.sidebar.checkbox('Imunodeficiência', key='imuno')
+    neuro_pac = st.sidebar.checkbox('Doença Neurológica Crônica', key='neuro')
     obes_pac = st.sidebar.checkbox('Obesidade', key="obesidade")   
     
     dir_pac = {'Nome': nome_pac, 'Idade': idade_pac, 'Sexo': sexo_pac, 'Raça': raca_pac,
-    'Vacina': vac_pac, 'Nosocomial': vac_nosocomial,'Obesidade': obes_pac, 'Cardiopatia': cardio_pac,
-    'Diabetes': diab_pac,'Dispneia':dispneia_pac,'Hematopatia':hemato_pac}
+    'Vacina': vac_pac, 'Nosocomial': vac_nosocomial,'Cardiopatia': cardio_pac,
+    'Diabetes': diab_pac,'Dispneia':dispneia_pac,'Hematopatia':hemato_pac, 'Imunologica':imuno_pac,
+    'Neurologica': neuro_pac,'Obesidade': obes_pac}
 
     features=pd.DataFrame(dir_pac, index=[0])
     return features
@@ -72,7 +75,7 @@ with col1:
         st.session_state["cardiopatia"] = False
         st.session_state["hemato"] = False
         st.session_state["diabetes"] = False
-        # st.session_state["diabetes"] = False
+        st.session_state["dispneia"] = False
         # st.session_state["diabetes"] = False
         # st.session_state["diabetes"] = False
         # st.session_state["diabetes"] = False

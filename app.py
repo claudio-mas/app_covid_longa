@@ -49,9 +49,9 @@ with col1:
 
     st.subheader('Instruções:')
     st.write("1- Preencher a ficha do paciente ao lado esquerdo desta tela")
-    st.write('2- Clique no botão <Confirmar> abaixo')
-    st.write('3- Será apresentado o resultado da avaliação; para incluir os dados de outro paciente, clique no botão <Nova Ficha>')
-
+    st.write('2- Clique no botão <Confirmar> para ver o resultado da avaliação')
+    st.write('3- Clique no botão <Imprimir> para imprimir a ficha do paciente')
+    st.write('4- Clique no botão <Nova ficha> para finalizar esta ficha e abrir nova')
 
     def clear_text():
         st.session_state["nome"] = ""
@@ -87,8 +87,8 @@ with col3:
 
 with col4:
     if st.button("Imprimir"):
-        arquivo = open('sistema.txt', 'r')
-        #st.balloons()
+        #arquivo = open('sistema.txt', 'r')
+        st.balloons()
 
 with col5:
     st.button("Nova ficha", on_click=clear_text)

@@ -1,5 +1,6 @@
 import streamlit as st
 import pandas as pd
+import os
 
 hide_menu_style = """
         <style>
@@ -92,8 +93,9 @@ with col3:
 
 with col4:
     if st.button("Imprimir"):
-        #arquivo = open('sistema.txt', 'r')
-        st.balloons()
+        path = 'ficha.pdf'
+        os.system(path)
+        #st.balloons()
 
 with col5:
     st.button("Nova ficha", on_click=clear_text)

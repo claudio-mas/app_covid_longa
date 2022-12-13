@@ -77,12 +77,16 @@ with col2:
     col2.markdown("""<p><img style="float: right;" src="https://as1.ftcdn.net/jpg/03/07/43/75/240_F_307437510_x6kug0WyeBJQjzhjVs3jTbIQkpJBDPP1.jpg" alt="" width="240" height="240" /></p>""", unsafe_allow_html=True)
     
 
-if st.button("Confirmar"):
-    st.balloons()
-    st.success('Sem covid longa   :)')
-    st.warning('Covid longa   :(')
-    df = f_modelo()
-st.button("Imprimir")
-st.button("Nova ficha", on_click=clear_text)
+col3, col4, col5 = st.columns(3)
+with col1:
+    if st.button("Confirmar"):
+        st.balloons()
+        st.success('Sem covid longa   :)')
+        st.warning('Covid longa   :(')
+        df = f_modelo()
+with col2:
+    st.button("Imprimir")
+with col3:
+    st.button("Nova ficha", on_click=clear_text)
 
     

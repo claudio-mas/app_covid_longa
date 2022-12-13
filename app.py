@@ -1,8 +1,20 @@
 import streamlit as st
+import numpy as np
 import pandas as pd
-import os
-import subprocess
-import webbrowser
+import matplotlib.pyplot as plt
+import seaborn as se
+import warnings
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import LabelEncoder
+from sklearn.metrics import classification_report,plot_confusion_matrix
+warnings.filterwarnings('ignore')
+from sklearn.preprocessing import MinMaxScaler
+from sklearn.feature_selection import SelectKBest,f_regression,f_classif
+from sklearn.preprocessing import StandardScaler
+from imblearn.combine import SMOTEENN
+from sklearn.preprocessing import PowerTransformer
+from sklearn.linear_model import LogisticRegression
+
 
 hide_menu_style = """
         <style>
@@ -43,14 +55,71 @@ def f_dados_paciente():
     'Diabetes': diab_pac,'Dispneia':dispneia_pac,'Hematologica':hemato_pac, 'Imunologica':imuno_pac,
     'Neurologica': neuro_pac,'Obesidade': obes_pac,'Pneumatopatia':pneumo_pac,'Renal':renal_pac,'SDown':sdown_pac}
 
+    if raca_pac == 'Branca':
+        racaBranca=1
+        racaParda=0
+        racaOutras=0
+    elif raca_pac == 'Parda':
+        racaBranca=0
+        racaParda=1
+        racaOutras=0
+    else:
+        racaBranca=0
+        racaParda=0
+        racaOutras=1
+    
+    if idade_pac < 20:
+        jovem=1
+        adulto=0
+        idoso=0
+    elif idade_pac < 60:
+        jovem=0
+        adulto=1
+        idoso=0
+    else:
+        jovem=0
+        adulto=0
+        idoso=1
+
+    if sexo_pac == 'Masculino':
+        masc=1
+        fem=0
+    else:
+        masc=0
+        fem=1
+
+    dic_pac={'Branca': racaBranca, 'Parda': racaParda, 'Outras': racaOutras, 'Jovem': jovem, 'Adulto': adulto,
+    'Idoso': idoso, 'Fem': fem, 'Masc': masc, 'vacina': 0, 'nosocomial': 0, 'dispneia': 0, 'cardiopatia': 0, 'hematologica': 0, 'sindrome_down': 0, 'diabetes': 1, 'neurologica': 0, 'pneumopatia': 0, 'imunodepressao': 0, 'renal': 0, 'obesidade': 1}
+    
     features=pd.DataFrame(dic_pac, index=[0])
     return features
 
 def f_modelo():
-    df = pd.read_csv('dados_agrupados.csv', delimiter=';', quotechar='"')
-    return df
+    df = pd.read_csv('dados_covid.csv', delimiter=';', quotechar='"')
+    # Selected Columns
+    features=['Branca','Parda','Outras','Jovem','Adulto','Idoso','Fem','Masc','vacina','nosocomial','dispneia','cardiopatia','hematologica','sindrome_down','diabetes','neurologica','pneumopatia','imunodepressao','renal','obesidade']
+    target='covid_longa'
+    # X & Y
+    X=df[features]
+    Y=df[target]
+    # Data split for training and testing
+    X_train,X_test,Y_train,Y_test=train_test_split(X,Y,test_size=0.2,random_state=0)
+    # Model Initialization
+    model=LogisticRegression(C=0.118, class_weight={}, dual=False, fit_intercept=True,
+                   intercept_scaling=1, l1_ratio=None, max_iter=1000,
+                   multi_class='auto', n_jobs=None, penalty='l2',
+                   random_state=1, solver='lbfgs', tol=0.0001, verbose=0,
+                   warm_start=False)
+    model.fit(X_train,Y_train)
+    y_pred=model.predict(X_test)
+    return model
+    # teste = {'POSCOMP': 65, 'Inglês': 6, 'Artigos publicados': 2}
+    # dft = pd.DataFrame(data = teste,index=[0])
+    # print(dft)
+    # resultado = model.predict(dft)
 
-x = f_side()
+f_side()
+model=f_modelo()
 df = f_dados_paciente()
 
 col1, col2 = st.columns(2)
@@ -115,7 +184,12 @@ with col3:
             st.balloons()
             st.success('Sem covid longa   :)')
             st.warning('Covid longa   :(')
-            df = f_modelo()
+            #df = f_modelo()
+            #teste = {'POSCOMP': 65, 'Inglês': 6, 'Artigos publicados': 2}
+            #dft = pd.DataFrame(data = teste,index=[0])
+            print(df)
+            resultado = model.predict(df)
+            print(resultado)
 
 # with col4:
 #     if st.button("Imprimir"):

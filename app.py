@@ -81,11 +81,11 @@ with col2:
     col2.markdown("""<p><img style="float: right;" src="https://as1.ftcdn.net/jpg/03/07/43/75/240_F_307437510_x6kug0WyeBJQjzhjVs3jTbIQkpJBDPP1.jpg" alt="" width="240" height="240" /></p>""", unsafe_allow_html=True)
     
 st.write("1- Preencher a ficha do paciente ao lado esquerdo desta tela")
-st.write('2- Clique no botão <Confirmar> para ver o resultado da avaliação')
-st.write('3- Clique no botão <Imprimir> para imprimir a ficha do paciente')
-st.write('4- Clique no botão <Nova ficha> para finalizar esta ficha e abrir nova')
+st.write('2- Clique no botão <Confirmar> para obter o resultado da avaliação')
+#st.write('3- Clique no botão <Imprimir> para imprimir a ficha do paciente')
+st.write('4- Clique no botão <Nova ficha> para finalizar e iniciar uma nova ficha do paciente')
 
-col3, col4, col5 = st.columns(3)
+col3, col5 = st.columns(3)
 with col3:
     if st.button("Confirmar"):
         if st.session_state["nome"]=='':
@@ -98,13 +98,13 @@ with col3:
             st.warning('Covid longa   :(')
             df = f_modelo()
 
-with col4:
-    if st.button("Imprimir"):
-        path = 'https://github.com/claudio-mas/app_covid_longa/blob/e378bdb11fbc03a3f96353841ff40eb1e2162094/ficha.pdf'
-        #subprocess.Popen([path], shell=True)
-        #webbrowser.open_new(path)
-        os.system(path)
-        st.balloons()
+# with col4:
+#     if st.button("Imprimir"):
+#         path = 'https://github.com/claudio-mas/app_covid_longa/blob/e378bdb11fbc03a3f96353841ff40eb1e2162094/ficha.pdf'
+#         #subprocess.Popen([path], shell=True)
+#         #webbrowser.open_new(path)
+#         os.system(path)
+#         st.balloons()
 
 with col5:
     st.button("Nova ficha", on_click=clear_text)

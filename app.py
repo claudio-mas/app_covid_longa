@@ -95,7 +95,7 @@ with col3:
 
 with col4:
     if st.button("Imprimir"):
-        path = 'ficha.pdf'
+        path = 'https://github.com/claudio-mas/app_covid_longa/blob/main/ficha.pdf'
         #subprocess.Popen([path], shell=True)
         webbrowser.open_new(path)
         #os.system(path)

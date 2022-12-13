@@ -25,14 +25,19 @@ def f_dados_paciente():
     # zona_pac = st.sidebar.selectbox("Zona",("Selecione", "Urbana", "Rural", "Periurbana","Ignorado"),
     #     key="zona")
     vac_pac = st.sidebar.checkbox('Recebeu vacina?', key='vacina')
+    vac_nosocomial = st.sidebar.checkbox('Infecção adquirida no hospital?', key='nosocomial')
     #st.sidebar.write('Fatores de risco:')
     st.sidebar.markdown(f'<h4 style="color: #ff0000;"><strong>Fatores de Risco:</strong></h4>', unsafe_allow_html=True)
-    obes_pac = st.sidebar.checkbox('Obesidade', key="obesidade")
-    asma_pac = st.sidebar.checkbox('Asma', key="asma")
+    cardio_pac = st.sidebar.checkbox('Doença Cardiovascular crônica', key="cardiopatia")
     diab_pac = st.sidebar.checkbox('Diabetes', key="diabetes")
-
+    dispneia_pac = st.sidebar.checkbox('Dispneia', key="dispneia")
+    hemato_pac = st.sidebar.checkbox('Doença Hematológica crônica', key="hemato")
+    obes_pac = st.sidebar.checkbox('Obesidade', key="obesidade")   
+    
     dir_pac = {'Nome': nome_pac, 'Idade': idade_pac, 'Sexo': sexo_pac, 'Raça': raca_pac,
-    'Vacina': vac_pac, 'Obesidade': obes_pac, 'Asma': asma_pac, 'Diabetes': diab_pac}
+    'Vacina': vac_pac, 'Nosocomial': vac_nosocomial,'Obesidade': obes_pac, 'Cardiopatia': cardio_pac,
+    'Diabetes': diab_pac,'Dispneia':dispneia_pac,'Hematopatia':hemato_pac}
+
     features=pd.DataFrame(dir_pac, index=[0])
     return features
 
@@ -63,9 +68,14 @@ with col1:
         st.session_state["vacina"] = False
         st.session_state["obesidade"] = False
         st.session_state["raca"] = "Selecione"
-        #st.session_state["zona"] = "Selecione"
-        st.session_state["asma"] = False
+        st.session_state["nosocomial"] = False
+        st.session_state["cardiopatia"] = False
+        st.session_state["hemato"] = False
         st.session_state["diabetes"] = False
+        # st.session_state["diabetes"] = False
+        # st.session_state["diabetes"] = False
+        # st.session_state["diabetes"] = False
+        # st.session_state["diabetes"] = False
 
     #st.write(x)
 
@@ -83,7 +93,7 @@ with col2:
 st.write("1- Preencher a ficha do paciente ao lado esquerdo desta tela")
 st.write('2- Clique no botão <Confirmar> para obter o resultado da avaliação')
 #st.write('3- Clique no botão <Imprimir> para imprimir a ficha do paciente')
-st.write('4- Clique no botão <Nova ficha> para finalizar e iniciar uma nova ficha do paciente')
+st.write('3- Clique no botão <Nova ficha> para finalizar e iniciar uma nova ficha do paciente')
 
 col3, col5 = st.columns(2)
 with col3:

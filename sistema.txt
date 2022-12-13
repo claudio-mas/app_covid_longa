@@ -1,8 +1,0 @@
-Provider=SQLOLEDB.1;Persist Security Info=False;User ID=paulomauricio47_drpmsp;Initial Catalog=paulomauricio47_drpmsp;Data Source=paulomauricio47_drpmsp.sqlserver.dbaas.com.br;Password=oowa2015;
-Provider=MSOLEDBSQL;Server=CLINICAMENTA\SQLEXPRESS;Database=Menta;UID=sa;PWD=oowa2015;
-DRIVER=SQL Server Native Client 11.0;SERVER=CLINICAMENTA\SQLEXPRESS;UID=sa;PWD=oowa2015;DATABASE=Menta;
-Provider=sqloledb;Data Source=CLINICAMENTA\SQLEXPRESS;Initial Catalog=Cake;User ID=sa;Password=oowa2015;
-Driver={SQL Server}; Server=CLINICAMENTA\SQLEXPRESS; Database=Cake; Uid=sa; Pwd=oowa2015;
-Provider=SQLNCLI; Server=CLINICAMENTA\SQLEXPRESS; Database=Cake; Uid=sa; Pwd=oowa2015;
-Data Source=CLINICAMENTA\SQLEXPRESS; Initial Catalog=Cake; User Id=sa; Password=oowa2015;
-Provider=MSOLEDBSQL;Server=CLINICAMENTA\SQLEXPRESS;Database=Menta;UID=sa;PWD=oowa2015;

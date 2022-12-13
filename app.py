@@ -1,12 +1,12 @@
 import streamlit as st
 import pandas as pd
 
-# hide_menu_style = """
-#         <style>
-#         #MainMenu {visibility: hidden;}
-#         </style>
-#         """
-# st.markdown(hide_menu_style, unsafe_allow_html=True)
+hide_menu_style = """
+        <style>
+        #MainMenu {visibility: hidden;}
+        </style>
+        """
+st.markdown(hide_menu_style, unsafe_allow_html=True)
 
 def f_side():
     #st.sidebar.image("https://as2.ftcdn.net/v2/jpg/05/23/82/65/1000_F_523826590_gkVPPuLEG4aijfh8bJviQCJH6oSERwlb.jpg", width=150)
@@ -21,7 +21,7 @@ def f_dados_paciente():
         key="raca")
     # zona_pac = st.sidebar.selectbox("Zona",("Selecione", "Urbana", "Rural", "Periurbana","Ignorado"),
     #     key="zona")
-    vac_pac = st.sidebar.checkbox('Recebeu vacina', key='vacina')
+    vac_pac = st.sidebar.checkbox('Recebeu vacina?', key='vacina')
     #st.sidebar.write('Fatores de risco:')
     st.sidebar.markdown(f'<h4 style="color: #ff0000;"><strong>Fatores de Risco:</strong></h4>', unsafe_allow_html=True)
     obes_pac = st.sidebar.checkbox('Obesidade', key="obesidade")

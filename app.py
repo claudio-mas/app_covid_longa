@@ -1,12 +1,12 @@
 import streamlit as st
 import pandas as pd
 
-hide_menu_style = """
-        <style>
-        #MainMenu {visibility: hidden;}
-        </style>
-        """
-st.markdown(hide_menu_style, unsafe_allow_html=True)
+# hide_menu_style = """
+#         <style>
+#         #MainMenu {visibility: hidden;}
+#         </style>
+#         """
+# st.markdown(hide_menu_style, unsafe_allow_html=True)
 
 def f_side():
     #st.sidebar.image("https://as2.ftcdn.net/v2/jpg/05/23/82/65/1000_F_523826590_gkVPPuLEG4aijfh8bJviQCJH6oSERwlb.jpg", width=150)
@@ -47,7 +47,11 @@ with col1:
     App que utiliza machine learning para prever possível covid longa dos pacientes
     """)
 
-    st.subheader('Dados do paciente:')
+    st.subheader('Instruções:')
+    st.write("1- Preencher a ficha do paciente ao lado esquerdo desta tela")
+    st.write('2- Clique no botão <Confirmar> abaixo')
+    st.write('3- Será apresentado o resultado da avaliação; para incluir os dados de outro paciente, clique no botão <Nova Ficha>')
+
 
     def clear_text():
         st.session_state["nome"] = ""
@@ -59,15 +63,15 @@ with col1:
         st.session_state["asma"] = False
         st.session_state["diabetes"] = False
 
-    st.sidebar.button("Nova ficha", on_click=clear_text)
-    
-    st.write(x)
+    #st.write(x)
 
     if st.button("Confirmar"):
         st.balloons()
         st.success('Sem covid longa   :)')
         st.warning('Covid longa   :(')
         df = f_modelo()
+
+    st.button("Nova ficha", on_click=clear_text)
 
 with col2:
     #st.image("https://as1.ftcdn.net/jpg/03/07/43/75/240_F_307437510_x6kug0WyeBJQjzhjVs3jTbIQkpJBDPP1.jpg", width=300)

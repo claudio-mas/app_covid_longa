@@ -84,8 +84,12 @@ with col3:
         st.success('Sem covid longa   :)')
         st.warning('Covid longa   :(')
         df = f_modelo()
+
 with col4:
-    st.button("Imprimir")
+    if st.button("Imprimir"):
+        #arquivo = open('ficha.pdf', 'r')
+        st.balloons()
+
 with col5:
     st.button("Nova ficha", on_click=clear_text)
 

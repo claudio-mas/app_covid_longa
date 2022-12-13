@@ -96,10 +96,10 @@ with col3:
 with col4:
     if st.button("Imprimir"):
         path = 'https://github.com/claudio-mas/app_covid_longa/blob/e378bdb11fbc03a3f96353841ff40eb1e2162094/ficha.pdf'
-        subprocess.Popen([path], shell=True)
+        #subprocess.Popen([path], shell=True)
         #webbrowser.open_new(path)
-        #os.system(path)
-        #st.balloons()
+        os.system(path)
+        st.balloons()
 
 with col5:
     st.button("Nova ficha", on_click=clear_text)

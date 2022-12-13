@@ -23,23 +23,26 @@ def f_dados_paciente():
         key="sexo", label_visibility='visible', disabled=False, horizontal=True)
     raca_pac = st.sidebar.selectbox("Raça",("Selecione", "Branca", "Preta", "Amarela","Parda","Indígena","Ignorado"),
         key="raca")
+
     vac_pac = st.sidebar.checkbox('Recebeu vacina?', key='vacina')
     vac_nosocomial = st.sidebar.checkbox('Infecção adquirida no hospital?', key='nosocomial')
     st.sidebar.markdown(f'<h4 style="color: #ff0000;"><strong>Fatores de Risco:</strong></h4>', unsafe_allow_html=True)
     cardio_pac = st.sidebar.checkbox('Doença Cardiovascular Crônica', key="cardiopatia")
     hemato_pac = st.sidebar.checkbox('Doença Hematológica Crônica', key="hemato")  
     neuro_pac = st.sidebar.checkbox('Doença Neurológica Crônica', key='neuro')
+    renal_pac = st.sidebar.checkbox('Doença Renal Crônica', key='renal')    
     diab_pac = st.sidebar.checkbox('Diabetes', key="diabetes")
     dispneia_pac = st.sidebar.checkbox('Dispneia', key="dispneia")
     imuno_pac = st.sidebar.checkbox('Imunodeficiência', key='imuno')
+    obes_pac = st.sidebar.checkbox('Obesidade', key="obesidade")
     pneumo_pac = st.sidebar.checkbox('Outra Pneumatopatia Crônica', key='pneumo')
-    obes_pac = st.sidebar.checkbox('Obesidade', key="obesidade")   
-    dir_pac = {'Nome': nome_pac, 'Idade': idade_pac, 'Sexo': sexo_pac, 'Raça': raca_pac,
+    
+    dic_pac = {'Nome': nome_pac, 'Idade': idade_pac, 'Sexo': sexo_pac, 'Raça': raca_pac,
     'Vacina': vac_pac, 'Nosocomial': vac_nosocomial,'Cardiopatia': cardio_pac,
     'Diabetes': diab_pac,'Dispneia':dispneia_pac,'Hematologica':hemato_pac, 'Imunologica':imuno_pac,
-    'Neurologica': neuro_pac,'Obesidade': obes_pac,'Pneumatopatia':pneumo_pac}
+    'Neurologica': neuro_pac,'Obesidade': obes_pac,'Pneumatopatia':pneumo_pac,'Renal':renal_pac}
 
-    features=pd.DataFrame(dir_pac, index=[0])
+    features=pd.DataFrame(dic_pac, index=[0])
     return features
 
 def f_modelo():
@@ -77,6 +80,7 @@ with col1:
         st.session_state["neuro"] = False
         st.session_state["pneumo"] = False
         st.session_state["obesidade"] = False
+        st.session_state["renal"] = False
 
     #st.write(x)
 

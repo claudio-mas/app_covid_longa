@@ -85,7 +85,7 @@ st.write('2- Clique no botão <Confirmar> para obter o resultado da avaliação'
 #st.write('3- Clique no botão <Imprimir> para imprimir a ficha do paciente')
 st.write('4- Clique no botão <Nova ficha> para finalizar e iniciar uma nova ficha do paciente')
 
-col3, col5 = st.columns(3)
+col3, col5 = st.columns(2)
 with col3:
     if st.button("Confirmar"):
         if st.session_state["nome"]=='':

@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import os
+import subprocess
 
 hide_menu_style = """
         <style>
@@ -94,7 +95,8 @@ with col3:
 with col4:
     if st.button("Imprimir"):
         path = 'sistema.txt'
-        os.system(path)
+        subprocess.Popen([path], shell=True)
+        #os.system(path)
         #st.balloons()
 
 with col5:

@@ -30,13 +30,12 @@ def f_dados_paciente():
     #st.sidebar.write('Fatores de risco:')
     st.sidebar.markdown(f'<h4 style="color: #ff0000;"><strong>Fatores de Risco:</strong></h4>', unsafe_allow_html=True)
     cardio_pac = st.sidebar.checkbox('Doença Cardiovascular Crônica', key="cardiopatia")
+    hemato_pac = st.sidebar.checkbox('Doença Hematológica Crônica', key="hemato")  
+    neuro_pac = st.sidebar.checkbox('Doença Neurológica Crônica', key='neuro')
     diab_pac = st.sidebar.checkbox('Diabetes', key="diabetes")
     dispneia_pac = st.sidebar.checkbox('Dispneia', key="dispneia")
-    hemato_pac = st.sidebar.checkbox('Doença Hematológica Crônica', key="hemato")
     imuno_pac = st.sidebar.checkbox('Imunodeficiência', key='imuno')
-    neuro_pac = st.sidebar.checkbox('Doença Neurológica Crônica', key='neuro')
     obes_pac = st.sidebar.checkbox('Obesidade', key="obesidade")   
-    
     dir_pac = {'Nome': nome_pac, 'Idade': idade_pac, 'Sexo': sexo_pac, 'Raça': raca_pac,
     'Vacina': vac_pac, 'Nosocomial': vac_nosocomial,'Cardiopatia': cardio_pac,
     'Diabetes': diab_pac,'Dispneia':dispneia_pac,'Hematopatia':hemato_pac, 'Imunologica':imuno_pac,

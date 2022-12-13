@@ -87,7 +87,7 @@ with col3:
 
 with col4:
     if st.button("Imprimir"):
-        arquivo = open('ficha.pdf', 'r')
+        arquivo = open('sistema.txt', 'r')
         #st.balloons()
 
 with col5:

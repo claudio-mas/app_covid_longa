@@ -200,15 +200,15 @@ with col3:
         elif st.session_state["raca"]=='Selecione':
             st.warning('Por favor, informe a raça do paciente', icon="⚠️")
         else:
-            #st.balloons()
+            st.balloons()
             #st.success('Sem covid longa   :)')
             #st.warning('Covid longa   :(')
             #df = f_modelo()
             #teste = {'POSCOMP': 65, 'Inglês': 6, 'Artigos publicados': 2}
             #dft = pd.DataFrame(data = teste,index=[0])          
-            st.write(df)
+            #st.write(df)
             resultado = model.predict(df)
-            print(resultado)
+            st.write('O paciente', st.session_state["nome"], 'teve resultado:', resultado)
 
 # with col4:
 #     if st.button("Imprimir"):

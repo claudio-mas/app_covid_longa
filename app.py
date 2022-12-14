@@ -123,11 +123,7 @@ def f_modelo():
     # Data split for training and testing
     X_train,X_test,Y_train,Y_test=train_test_split(X,Y,test_size=0.2,random_state=0)
     # Model Initialization
-    model=LogisticRegression(C=0.118, class_weight={}, dual=False, fit_intercept=True,
-                   intercept_scaling=1, l1_ratio=None, max_iter=1000,
-                   multi_class='auto', n_jobs=None, penalty='l2',
-                   random_state=1, solver='lbfgs', tol=0.0001, verbose=0,
-                   warm_start=False)
+    model=LogisticRegression()
     model.fit(X_train,Y_train)
     y_pred=model.predict(X_test)
     y_proba = model.predict_proba(X_test)
@@ -223,7 +219,7 @@ with col3:
             minha_prob = model.predict_proba(df)
             st.write('O paciente', st.session_state["nome"],'teria {}% de probabilidade de desenvolver COVID longa.'\
                  .format(round(minha_prob[:,1][0]*100, 2)))
-            st.write(model.coef_)
+            #st.write(model.coef_)
 
 # with col4:
 #     if st.button("Imprimir"):

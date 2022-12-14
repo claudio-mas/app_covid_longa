@@ -208,9 +208,9 @@ with col3:
             #dft = pd.DataFrame(data = df,index=[0]) 
             st.write(df)                               
             #resultado = model.predict(df)
-            #minha_prob = model.predict_proba(df)
-            #st.write('O paciente', st.session_state["nome"],'teria {}% de probabilidade de desenvolver COVID longa.'\
-            #    .format(round(minha_prob[:,1][0]*100, 2)))
+            minha_prob = model.predict_proba(df)
+            st.write('O paciente', st.session_state["nome"],'teria {}% de probabilidade de desenvolver COVID longa.'\
+                .format(round(minha_prob[:,1][0]*100, 2)))
 
 # with col4:
 #     if st.button("Imprimir"):

@@ -221,12 +221,12 @@ with col3:
             mproba=(float(100-(minha_prob[:,1][0])*100))
             # st.write('O paciente', st.session_state["nome"],'teria {}% de probabilidade de desenvolver COVID longa.'\
             #      .format(round(mproba, 2)))
-            texto='O paciente ' + st.session_state["nome"] + 'teria ' + str(round(mproba, 2)) + '% de probabilidade de desenvolver COVID longa.'
-            st.subheader(texto)
+            texto='O paciente ' + st.session_state["nome"] + ' teria ' + str(round(mproba, 2)) + '% de probabilidade de desenvolver COVID longa.'
+            #st.subheader(texto)
             #      .format(round(mproba, 2)))
             acc=accuracy_score(Y_test, y_pred)*100
             #st.write("Acurácia: {:.4f}\n".format(accuracy_score(Y_test, y_pred)))
-            st.write("Acurácia: {:.2f}\n".format(acc),"%")
+            #st.write("Acurácia: {:.2f}\n".format(acc),"%")
             #st.write(model.coef_)
 
 # with col4:
@@ -239,3 +239,6 @@ with col3:
 
 with col5:
     st.button("Nova ficha", on_click=clear_text)
+
+st.subheader(texto)
+st.write("Acurácia: {:.2f}\n".format(acc),"%")

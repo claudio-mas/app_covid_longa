@@ -219,7 +219,7 @@ with col3:
             #st.write('O resultado do paciente', st.session_state["nome"], 'é',resultado)
             minha_prob = model.predict_proba(df)
             mproba=(float(100-(minha_prob[:,1][0])*100))
-            st.subheader('O paciente', st.session_state["nome"],'teria {}% de probabilidade de desenvolver COVID longa.'\
+            st.write('O paciente', st.session_state["nome"],'teria {}% de probabilidade de desenvolver COVID longa.'\
                  .format(round(mproba, 2)))
             acc=accuracy_score(Y_test, y_pred)*100
             #st.write("Acurácia: {:.4f}\n".format(accuracy_score(Y_test, y_pred)))

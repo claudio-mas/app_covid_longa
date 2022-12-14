@@ -3,13 +3,13 @@ import pandas as pd
 import warnings
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import LabelEncoder
-from sklearn.metrics import classification_report,plot_confusion_matrix
+#from sklearn.metrics import classification_report,plot_confusion_matrix
 warnings.filterwarnings('ignore')
-from sklearn.preprocessing import MinMaxScaler
-from sklearn.feature_selection import SelectKBest,f_regression,f_classif
-from sklearn.preprocessing import StandardScaler
-from imblearn.combine import SMOTEENN
-from sklearn.preprocessing import PowerTransformer
+#from sklearn.preprocessing import MinMaxScaler
+#from sklearn.feature_selection import SelectKBest,f_regression,f_classif
+#from sklearn.preprocessing import StandardScaler
+#from imblearn.combine import SMOTEENN
+#from sklearn.preprocessing import PowerTransformer
 from sklearn.linear_model import LogisticRegression
 
 

@@ -91,7 +91,7 @@ def f_dados_paciente():
         else:
             return 0
 
-    var_pac=f_zero_um(var_pac)
+    vac_pac=f_zero_um(vac_pac)
     # if vac_pac:
     #     vac_pac=1
     # else:

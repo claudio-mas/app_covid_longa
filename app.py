@@ -200,7 +200,7 @@ with col3:
         elif st.session_state["raca"]=='Selecione':
             st.warning('Por favor, informe a raça do paciente', icon="⚠️")
         else:
-            st.balloons()
+            #st.balloons()
             df = pd.read_csv('dados_covid.csv', delimiter=';', quotechar='"')
             # Selected Columns
             features=['Branca','Parda','Outras','Jovem','Adulto','Idoso','Fem','Masc','vacina','nosocomial','dispneia','cardiopatia','hematologica','sindrome_down','diabetes','neurologica','pneumopatia','imunodepressao','renal','obesidade']
@@ -220,11 +220,11 @@ with col3:
             y_pred=model.predict(X_test)
             y_proba = model.predict_proba(X_test)           
             st.write(df)                               
-            resultado = model.predict(df)
-            st.write('O resultado do paciente', st.session_state["nome"], 'é',resultado)
-            # minha_prob = model.predict_proba(df)
-            # st.write('O paciente', st.session_state["nome"],'teria {}% de probabilidade de desenvolver COVID longa.'\
-            #     .format(round(minha_prob[:,1][0]*100, 2)))
+            #resultado = model.predict(df)
+            #st.write('O resultado do paciente', st.session_state["nome"], 'é',resultado)
+            minha_prob = model.predict_proba(df)
+            st.write('O paciente', st.session_state["nome"],'teria {}% de probabilidade de desenvolver COVID longa.'\
+                 .format(round(minha_prob[:,1][0]*100, 2)))
 
 # with col4:
 #     if st.button("Imprimir"):

@@ -64,8 +64,8 @@ def f_dados_paciente():
         racaBranca=0
         racaParda=0
         racaOutras=1
-        
-    idade_pac=int(idade_pac)
+    
+    idade_pac=10
     if idade_pac < 20:
         jovem=1
         adulto=0
@@ -119,6 +119,7 @@ def f_modelo():
 f_side()
 model=f_modelo()
 df = f_dados_paciente()
+print(df)
 
 col1, col2 = st.columns(2)
 with col1:

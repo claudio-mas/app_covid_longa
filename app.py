@@ -131,7 +131,8 @@ def f_modelo():
                    warm_start=False)
     model.fit(X_train,Y_train)
     y_pred=model.predict(X_test)
-    return model
+    y_proba = model.predict_proba(X_test)
+    return model, y_pred, y_proba
     # teste = {'POSCOMP': 65, 'Inglês': 6, 'Artigos publicados': 2}
     # dft = pd.DataFrame(data = teste,index=[0])
     # print(dft)
@@ -205,10 +206,13 @@ with col3:
             #st.warning('Covid longa   :(')
             #df = f_modelo()
             #teste = {'POSCOMP': 65, 'Inglês': 6, 'Artigos publicados': 2}
-            #dft = pd.DataFrame(data = df,index=[0])          
+            #dft = pd.DataFrame(data = df,index=[0]) 
+            minha_prob = model.predict_proba(df)
+         
             st.write(df)
-            resultado = model.predict(df)
-            st.write('O paciente', st.session_state["nome"], 'teve resultado:', resultado)
+            #resultado = model.predict(df)
+            st.write('O paciente', st.session_state["nome"],'teria {}% de probabilidade de desenvolver COVID longa.'\
+                .format(round(minha_prob[:,1][0]*100, 2)))
 
 # with col4:
 #     if st.button("Imprimir"):

@@ -118,7 +118,6 @@ def f_modelo():
 f_side()
 model=f_modelo()
 df = f_dados_paciente()
-print(df)
 
 col1, col2 = st.columns(2)
 with col1:
@@ -179,14 +178,13 @@ with col3:
         elif st.session_state["raca"]=='Selecione':
             st.warning('Por favor, informe a raça do paciente', icon="⚠️")
         else:
-            st.balloons()
+            #st.balloons()
             #st.success('Sem covid longa   :)')
             #st.warning('Covid longa   :(')
             #df = f_modelo()
             #teste = {'POSCOMP': 65, 'Inglês': 6, 'Artigos publicados': 2}
-            #dft = pd.DataFrame(data = teste,index=[0])
-            df = f_dados_paciente()
-            print(df)
+            #dft = pd.DataFrame(data = teste,index=[0])          
+            st.write(df)
             resultado = model.predict(df)
             print(resultado)
 

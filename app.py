@@ -47,10 +47,10 @@ def f_dados_paciente():
     pneumo_pac = st.sidebar.checkbox('Outra Pneumatopatia Crônica', key='pneumo')
     sdown_pac = st.sidebar.checkbox('Síndrome de Down', key='sdown')
 
-    dic_pac = {'Nome': nome_pac, 'Idade': idade_pac, 'Sexo': sexo_pac, 'Raça': raca_pac,
-    'Vacina': vac_pac, 'Nosocomial': vac_nosocomial,'Cardiopatia': cardio_pac,
-    'Diabetes': diab_pac,'Dispneia':dispneia_pac,'Hematologica':hemato_pac, 'Imunologica':imuno_pac,
-    'Neurologica': neuro_pac,'Obesidade': obes_pac,'Pneumatopatia':pneumo_pac,'Renal':renal_pac,'SDown':sdown_pac}
+    # dic_pac = {'Nome': nome_pac, 'Idade': idade_pac, 'Sexo': sexo_pac, 'Raça': raca_pac,
+    # 'Vacina': vac_pac, 'Nosocomial': vac_nosocomial,'Cardiopatia': cardio_pac,
+    # 'Diabetes': diab_pac,'Dispneia':dispneia_pac,'Hematologica':hemato_pac, 'Imunologica':imuno_pac,
+    # 'Neurologica': neuro_pac,'Obesidade': obes_pac,'Pneumatopatia':pneumo_pac,'Renal':renal_pac,'SDown':sdown_pac}
 
     if raca_pac == 'Branca':
         racaBranca=1
@@ -92,33 +92,23 @@ def f_dados_paciente():
             return 0
 
     vac_pac=f_zero_um(vac_pac)
-    # if vac_pac:
-    #     vac_pac=1
-    # else:
-    #     vac_pac=0
-
-    if vac_nosocomial:
-        vac_nosocomial=1
-    else:
-        vac_nosocomial=0
-
-    if cardio_pac:
-        cardio_pac=1
-    else:
-        cardio_pac=0
-
-    if diab_pac:
-        diab_pac=1
-    else:
-        diab_pac=0
-
-    if dispneia_pac:
-        dispneia_pac=1
-    else:
-        dispneia_pac=0
+    vac_nosocomial=f_zero_um(vac_nosocomial)
+    cardio_pac=f_zero_um(cardio_pac)
+    diab_pac=f_zero_um(diab_pac)
+    dispneia_pac=f_zero_um(dispneia_pac)
+    hemato_pac=f_zero_um(hemato_pac)
+    neuro_pac=f_zero_um(neuro_pac)
+    renal_pac=f_zero_um(renal_pac)
+    imuno_pac=f_zero_um(imuno_pac)
+    obes_pac=f_zero_um(obes_pac)
+    pneumo_pac=f_zero_um(pneumo_pac)
+    sdown_pac=f_zero_um(sdown_pac)   
 
     dic_pac={'Branca': racaBranca, 'Parda': racaParda, 'Outras': racaOutras, 'Jovem': jovem, 'Adulto': adulto,
-    'Idoso': idoso, 'Fem': fem, 'Masc': masc, 'vacina': vac_pac, 'nosocomial': 0, 'dispneia': 0, 'cardiopatia': 0, 'hematologica': 0, 'sindrome_down': 0, 'diabetes': 1, 'neurologica': 0, 'pneumopatia': 0, 'imunodepressao': 0, 'renal': 0, 'obesidade': 1}
+    'Idoso': idoso, 'Fem': fem, 'Masc': masc, 'vacina': vac_pac, 'nosocomial': vac_nosocomial,
+    'dispneia': dispneia_pac, 'cardiopatia': cardio_pac, 'hematologica': hemato_pac, 'sindrome_down': sdown_pac,
+    'diabetes': diab_pac, 'neurologica': neuro_pac, 'pneumopatia': pneumo_pac, 'imunodepressao': imuno_pac,
+    'renal': renal_pac, 'obesidade': obes_pac}
     
     features=pd.DataFrame(dic_pac, index=[0])
     return features

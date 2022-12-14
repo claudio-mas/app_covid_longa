@@ -110,7 +110,7 @@ def f_dados_paciente():
     'diabetes': diab_pac, 'neurologica': neuro_pac, 'pneumopatia': pneumo_pac, 'imunodepressao': imuno_pac,
     'renal': renal_pac, 'obesidade': obes_pac}
     
-    features=pd.DataFrame(dic_pac) #, index=[0])
+    features=pd.DataFrame(dic_pac, index=[0])
     return features
 
 def f_modelo():

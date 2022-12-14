@@ -12,7 +12,6 @@ warnings.filterwarnings('ignore')
 #from sklearn.preprocessing import PowerTransformer
 from sklearn.linear_model import LogisticRegression
 
-
 hide_menu_style = """
         <style>
         #MainMenu {visibility: hidden;}
@@ -207,8 +206,9 @@ with col3:
             #df = f_modelo()
             #teste = {'POSCOMP': 65, 'Inglês': 6, 'Artigos publicados': 2}
             #dft = pd.DataFrame(data = df,index=[0]) 
-            minha_prob = model.predict_proba(df)
-         
+            
+            #minha_prob = model.predict_proba(df)        
+            minha_prob=10
             st.write(df)
             #resultado = model.predict(df)
             st.write('O paciente', st.session_state["nome"],'teria {}% de probabilidade de desenvolver COVID longa.'\

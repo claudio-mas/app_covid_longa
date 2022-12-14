@@ -221,7 +221,7 @@ with col3:
             mproba=(float(100-(minha_prob[:,1][0])*100))
             # st.write('O paciente', st.session_state["nome"],'teria {}% de probabilidade de desenvolver COVID longa.'\
             #      .format(round(mproba, 2)))
-            texto='<p>O paciente ' + st.session_state["nome"] + ' teria ' + str(round(mproba, 2)) + '% de probabilidade de desenvolver COVID longa.<p>'
+            texto='<p><span style="color: #0000ff;"><strong>O paciente ' + st.session_state["nome"] + ' teria ' + str(round(mproba, 2)) + '% de probabilidade de desenvolver COVID longa.</strong></span></p>'
             st.markdown(texto, unsafe_allow_html=True)
             #      .format(round(mproba, 2)))
             acc=accuracy_score(Y_test, y_pred)*100

@@ -85,8 +85,13 @@ def f_dados_paciente():
         masc=0
         fem=1
 
+    if vac_pac:
+        vac_pac=1
+    else:
+        vac_pac=0
+
     dic_pac={'Branca': racaBranca, 'Parda': racaParda, 'Outras': racaOutras, 'Jovem': jovem, 'Adulto': adulto,
-    'Idoso': idoso, 'Fem': fem, 'Masc': masc, 'vacina': 0, 'nosocomial': 0, 'dispneia': 0, 'cardiopatia': 0, 'hematologica': 0, 'sindrome_down': 0, 'diabetes': 1, 'neurologica': 0, 'pneumopatia': 0, 'imunodepressao': 0, 'renal': 0, 'obesidade': 1}
+    'Idoso': idoso, 'Fem': fem, 'Masc': masc, 'vacina': vac_pac, 'nosocomial': 0, 'dispneia': 0, 'cardiopatia': 0, 'hematologica': 0, 'sindrome_down': 0, 'diabetes': 1, 'neurologica': 0, 'pneumopatia': 0, 'imunodepressao': 0, 'renal': 0, 'obesidade': 1}
     
     features=pd.DataFrame(dic_pac, index=[0])
     return features

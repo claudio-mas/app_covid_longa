@@ -110,7 +110,7 @@ def f_dados_paciente():
     'diabetes': diab_pac, 'neurologica': neuro_pac, 'pneumopatia': pneumo_pac, 'imunodepressao': imuno_pac,
     'renal': renal_pac, 'obesidade': obes_pac}
     
-    features=pd.DataFrame(dic_pac, index=[0])
+    features=pd.DataFrame(dic_pac) #, index=[0])
     return features
 
 def f_modelo():
@@ -205,8 +205,8 @@ with col3:
             #st.warning('Covid longa   :(')
             #df = f_modelo()
             #teste = {'POSCOMP': 65, 'Inglês': 6, 'Artigos publicados': 2}
-            #dft = pd.DataFrame(data = teste,index=[0])          
-            #st.write(df)
+            #dft = pd.DataFrame(data = df,index=[0])          
+            st.write(df)
             resultado = model.predict(df)
             st.write('O paciente', st.session_state["nome"], 'teve resultado:', resultado)
 

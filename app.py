@@ -85,10 +85,37 @@ def f_dados_paciente():
         masc=0
         fem=1
 
-    if vac_pac:
-        vac_pac=1
+    def f_zero_um(campo: bool):
+        if campo:
+            return 1
+        else:
+            return 0
+
+    var_pac=f_zero_um(var_pac)
+    # if vac_pac:
+    #     vac_pac=1
+    # else:
+    #     vac_pac=0
+
+    if vac_nosocomial:
+        vac_nosocomial=1
     else:
-        vac_pac=0
+        vac_nosocomial=0
+
+    if cardio_pac:
+        cardio_pac=1
+    else:
+        cardio_pac=0
+
+    if diab_pac:
+        diab_pac=1
+    else:
+        diab_pac=0
+
+    if dispneia_pac:
+        dispneia_pac=1
+    else:
+        dispneia_pac=0
 
     dic_pac={'Branca': racaBranca, 'Parda': racaParda, 'Outras': racaOutras, 'Jovem': jovem, 'Adulto': adulto,
     'Idoso': idoso, 'Fem': fem, 'Masc': masc, 'vacina': vac_pac, 'nosocomial': 0, 'dispneia': 0, 'cardiopatia': 0, 'hematologica': 0, 'sindrome_down': 0, 'diabetes': 1, 'neurologica': 0, 'pneumopatia': 0, 'imunodepressao': 0, 'renal': 0, 'obesidade': 1}

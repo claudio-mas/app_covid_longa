@@ -208,7 +208,7 @@ with col3:
             #dft = pd.DataFrame(data = df,index=[0]) 
             
             #minha_prob = model.predict_proba(df)        
-            minha_prob=3199
+            minha_prob=[0.23780654318010663, 0.7621934568198934]
             st.write(df)
             #resultado = model.predict(df)
             st.write('O paciente', st.session_state["nome"],'teria {}% de probabilidade de desenvolver COVID longa.'\

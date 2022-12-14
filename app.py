@@ -27,7 +27,7 @@ def f_side():
     
 def f_dados_paciente():      
     nome_pac = st.sidebar.text_input('Nome:', key='nome')
-    idade_pac = int(st.sidebar.text_input('Idade:', key='idade'))
+    idade_pac = st.sidebar.text_input('Idade:', key='idade')
     sexo_pac = st.sidebar.radio("Sexo", ["Masculino", "Feminino"],
         key="sexo", label_visibility='visible', disabled=False, horizontal=True)
     raca_pac = st.sidebar.selectbox("Raça",("Selecione", "Branca", "Preta", "Amarela","Parda","Indígena","Ignorado"),
@@ -64,7 +64,8 @@ def f_dados_paciente():
         racaBranca=0
         racaParda=0
         racaOutras=1
-    
+        
+    idade_pac=int(idade_pac)
     if idade_pac < 20:
         jovem=1
         adulto=0

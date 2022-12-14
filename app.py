@@ -65,6 +65,7 @@ def f_dados_paciente():
         racaParda=0
         racaOutras=1
     
+    print(idade_pac)
     idade_pac=10
     if idade_pac < 20:
         jovem=1

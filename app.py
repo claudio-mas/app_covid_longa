@@ -211,11 +211,12 @@ with col3:
             # Data split for training and testing
             X_train,X_test,Y_train,Y_test=train_test_split(X,Y,test_size=0.25,random_state=0)
             # Model Initialization
-            model=LogisticRegression(penalty='none', solver='newton-cg')
+            #model=LogisticRegression(penalty='none', solver='newton-cg')
+            model=LogisticRegression()
             model.fit(X_train,Y_train)
             y_pred=model.predict(X_test)
             y_proba = model.predict_proba(X_test)           
-            st.write(df)                               
+            #st.write(df)                               
             #resultado = model.predict(df)
             #st.write('O resultado do paciente', st.session_state["nome"], 'é',resultado)
             minha_prob = model.predict_proba(df)

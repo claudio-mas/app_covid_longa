@@ -138,6 +138,7 @@ def f_modelo():
     # resultado = model.predict(dft)
 
 f_side()
+df2 = pd.read_csv('dados_covid.csv', delimiter=';', quotechar='"')
 model=f_modelo()
 df = f_dados_paciente()
 
@@ -201,7 +202,7 @@ with col3:
             st.warning('Por favor, informe a raça do paciente', icon="⚠️")
         else:
             #st.balloons()
-            df2 = pd.read_csv('dados_covid.csv', delimiter=';', quotechar='"')
+            #df2 = pd.read_csv('dados_covid.csv', delimiter=';', quotechar='"')
             # Selected Columns
             features=['Branca','Parda','Outras','Jovem','Adulto','Idoso','Fem','Masc','vacina','nosocomial','dispneia','cardiopatia','hematologica','sindrome_down','diabetes','neurologica','pneumopatia','imunodepressao','renal','obesidade']
             target='covid_longa'
@@ -215,13 +216,14 @@ with col3:
             model=LogisticRegression()
             model.fit(X_train,Y_train)
             y_pred=model.predict(X_test)
-            y_proba = model.predict_proba(X_test)           
+            y_proba = model.predict_proba(X_test)         
             #st.write(df)                               
             #resultado = model.predict(df)
             #st.write('O resultado do paciente', st.session_state["nome"], 'é',resultado)
             minha_prob = model.predict_proba(df)
             st.write('O paciente', st.session_state["nome"],'teria {}% de probabilidade de desenvolver COVID longa.'\
                  .format(round(minha_prob[:,1][0]*100, 2)))
+            st.write(model.coef_)
 
 # with col4:
 #     if st.button("Imprimir"):

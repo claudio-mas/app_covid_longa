@@ -180,11 +180,12 @@ with col3:
             st.warning('Por favor, informe a raça do paciente', icon="⚠️")
         else:
             st.balloons()
-            st.success('Sem covid longa   :)')
-            st.warning('Covid longa   :(')
+            #st.success('Sem covid longa   :)')
+            #st.warning('Covid longa   :(')
             #df = f_modelo()
             #teste = {'POSCOMP': 65, 'Inglês': 6, 'Artigos publicados': 2}
             #dft = pd.DataFrame(data = teste,index=[0])
+            df = f_dados_paciente()
             print(df)
             resultado = model.predict(df)
             print(resultado)

@@ -197,7 +197,7 @@ with col3:
         elif st.session_state["raca"]=='Selecione':
             st.warning('Por favor, informe a raça do paciente', icon="⚠️")
         else:
-            #st.balloons()
+            st.balloons()
             #df2 = pd.read_csv('dados_covid.csv', delimiter=';', quotechar='"')
             # Selected Columns
             features=['Branca','Parda','Outras','Jovem','Adulto','Idoso','Fem','Masc','vacina','nosocomial','dispneia','cardiopatia','hematologica','sindrome_down','diabetes','neurologica','pneumopatia','imunodepressao','renal','obesidade']

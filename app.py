@@ -217,9 +217,9 @@ with col3:
             #resultado = model.predict(df)
             #st.write('O resultado do paciente', st.session_state["nome"], 'é',resultado)
             minha_prob = model.predict_proba(df)
-            st.write(float(minha_prob[:,1][0]))
+            mproba=(float(100-(minha_prob[:,1][0])*100))
             st.write('O paciente', st.session_state["nome"],'teria {}% de probabilidade de desenvolver COVID longa.'\
-                 .format(round(minha_prob[:,1][0]*100, 2)))
+                 .format(round(mproba, 2)))
             #st.write(model.coef_)
 
 # with col4:

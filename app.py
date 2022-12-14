@@ -206,10 +206,9 @@ with col3:
             #df = f_modelo()
             #teste = {'POSCOMP': 65, 'Inglês': 6, 'Artigos publicados': 2}
             #dft = pd.DataFrame(data = df,index=[0]) 
-            st.write(df)
-            #minha_prob = model.predict_proba(df)        
-            #minha_prob=[0.23780654318010663, 0.7621934568198934]          
+            st.write(df)                               
             #resultado = model.predict(df)
+            #minha_prob = model.predict_proba(df)
             #st.write('O paciente', st.session_state["nome"],'teria {}% de probabilidade de desenvolver COVID longa.'\
             #    .format(round(minha_prob[:,1][0]*100, 2)))
 

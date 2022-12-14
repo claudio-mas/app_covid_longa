@@ -11,6 +11,7 @@ warnings.filterwarnings('ignore')
 #from imblearn.combine import SMOTEENN
 #from sklearn.preprocessing import PowerTransformer
 from sklearn.linear_model import LogisticRegression
+from sklearn.metrics import accuracy_score
 
 hide_menu_style = """
         <style>
@@ -220,6 +221,7 @@ with col3:
             mproba=(float(100-(minha_prob[:,1][0])*100))
             st.write('O paciente', st.session_state["nome"],'teria {}% de probabilidade de desenvolver COVID longa.'\
                  .format(round(mproba, 2)))
+            st.write("Acurácia: {:.4f}\n".format(accuracy_score(Y_test, y_pred)))
             #st.write(model.coef_)
 
 # with col4:
@@ -232,5 +234,3 @@ with col3:
 
 with col5:
     st.button("Nova ficha", on_click=clear_text)
-
-    

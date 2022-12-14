@@ -221,7 +221,7 @@ with col3:
             mproba=(float(100-(minha_prob[:,1][0])*100))
             st.write('O paciente', st.session_state["nome"],'teria {}% de probabilidade de desenvolver COVID longa.'\
                  .format(round(mproba, 2)))
-            st.write("Acurácia: {}%\n".format(accuracy_score(Y_test, y_pred)*100))
+            st.write("Acurácia: {}%\n".format(round(accuracy_score(Y_test, y_pred)*100),2))
             #st.write(model.coef_)
 
 # with col4:

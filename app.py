@@ -201,11 +201,24 @@ with col3:
             st.warning('Por favor, informe a raça do paciente', icon="⚠️")
         else:
             st.balloons()
-            #st.success('Sem covid longa   :)')
-            #st.warning('Covid longa   :(')
-            #df = f_modelo()
-            #teste = {'POSCOMP': 65, 'Inglês': 6, 'Artigos publicados': 2}
-            #dft = pd.DataFrame(data = df,index=[0]) 
+            df = pd.read_csv('dados_covid.csv', delimiter=';', quotechar='"')
+            # Selected Columns
+            features=['Branca','Parda','Outras','Jovem','Adulto','Idoso','Fem','Masc','vacina','nosocomial','dispneia','cardiopatia','hematologica','sindrome_down','diabetes','neurologica','pneumopatia','imunodepressao','renal','obesidade']
+            target='covid_longa'
+            # X & Y
+            X=df[features]
+            Y=df[target]
+            # Data split for training and testing
+            X_train,X_test,Y_train,Y_test=train_test_split(X,Y,test_size=0.2,random_state=0)
+            # Model Initialization
+            model=LogisticRegression(C=0.118, class_weight={}, dual=False, fit_intercept=True,
+                   intercept_scaling=1, l1_ratio=None, max_iter=1000,
+                   multi_class='auto', n_jobs=None, penalty='l2',
+                   random_state=1, solver='lbfgs', tol=0.0001, verbose=0,
+                   warm_start=False)
+            model.fit(X_train,Y_train)
+            y_pred=model.predict(X_test)
+            y_proba = model.predict_proba(X_test)           
             st.write(df)                               
             resultado = model.predict(df)
             st.write('O resultado do paciente', st.session_state["nome"], 'é',resultado)

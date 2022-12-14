@@ -64,20 +64,19 @@ def f_dados_paciente():
         racaBranca=0
         racaParda=0
         racaOutras=1
-    
-    if st.session_state["idade"]!='':
-        if idade_pac < 20:
-            jovem=1
-            adulto=0
-            idoso=0
-        elif idade_pac < 60:
-            jovem=0
-            adulto=1
-            idoso=0
-        else:
-            jovem=0
-            adulto=0
-            idoso=1
+       
+    if idade_pac < '20':
+        jovem=1
+        adulto=0
+        idoso=0
+    elif idade_pac < '60':
+        jovem=0
+        adulto=1
+        idoso=0
+    else:
+        jovem=0
+        adulto=0
+        idoso=1
 
     if sexo_pac == 'Masculino':
         masc=1

@@ -201,21 +201,17 @@ with col3:
             st.warning('Por favor, informe a raça do paciente', icon="⚠️")
         else:
             #st.balloons()
-            df = pd.read_csv('dados_covid.csv', delimiter=';', quotechar='"')
+            df2 = pd.read_csv('dados_covid.csv', delimiter=';', quotechar='"')
             # Selected Columns
             features=['Branca','Parda','Outras','Jovem','Adulto','Idoso','Fem','Masc','vacina','nosocomial','dispneia','cardiopatia','hematologica','sindrome_down','diabetes','neurologica','pneumopatia','imunodepressao','renal','obesidade']
             target='covid_longa'
             # X & Y
-            X=df[features]
-            Y=df[target]
+            X=df2[features]
+            Y=df2[target]
             # Data split for training and testing
-            X_train,X_test,Y_train,Y_test=train_test_split(X,Y,test_size=0.2,random_state=0)
+            X_train,X_test,Y_train,Y_test=train_test_split(X,Y,test_size=0.25,random_state=0)
             # Model Initialization
-            model=LogisticRegression(C=0.118, class_weight={}, dual=False, fit_intercept=True,
-                   intercept_scaling=1, l1_ratio=None, max_iter=1000,
-                   multi_class='auto', n_jobs=None, penalty='l2',
-                   random_state=1, solver='lbfgs', tol=0.0001, verbose=0,
-                   warm_start=False)
+            model=LogisticRegression(penalty='none', solver='newton-cg')
             model.fit(X_train,Y_train)
             y_pred=model.predict(X_test)
             y_proba = model.predict_proba(X_test)           

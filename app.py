@@ -207,10 +207,11 @@ with col3:
             #teste = {'POSCOMP': 65, 'Inglês': 6, 'Artigos publicados': 2}
             #dft = pd.DataFrame(data = df,index=[0]) 
             st.write(df)                               
-            #resultado = model.predict(df)
-            minha_prob = model.predict_proba(df)
-            st.write('O paciente', st.session_state["nome"],'teria {}% de probabilidade de desenvolver COVID longa.'\
-                .format(round(minha_prob[:,1][0]*100, 2)))
+            resultado = model.predict(df)
+            st.write('O resultado do paciente', st.session_state["nome"], 'é',resultado)
+            # minha_prob = model.predict_proba(df)
+            # st.write('O paciente', st.session_state["nome"],'teria {}% de probabilidade de desenvolver COVID longa.'\
+            #     .format(round(minha_prob[:,1][0]*100, 2)))
 
 # with col4:
 #     if st.button("Imprimir"):

@@ -198,7 +198,7 @@ with col3:
         elif st.session_state["raca"]=='Selecione':
             st.warning('Por favor, informe a raça do paciente', icon="⚠️")
         else:
-            st.balloons()
+            #st.balloons()
             #df2 = pd.read_csv('dados_covid.csv', delimiter=';', quotechar='"')
             # Selected Columns
             features=['Branca','Parda','Outras','Jovem','Adulto','Idoso','Fem','Masc','vacina','nosocomial','dispneia','cardiopatia','hematologica','sindrome_down','diabetes','neurologica','pneumopatia','imunodepressao','renal','obesidade']
@@ -226,7 +226,7 @@ with col3:
             #      .format(round(mproba, 2)))
             acc=accuracy_score(Y_test, y_pred)*100
             #st.write("Acurácia: {:.4f}\n".format(accuracy_score(Y_test, y_pred)))
-            st.write("Acurácia: {:.2f}\n".format(acc),"%")
+            #st.write("Acurácia: {:.2f}\n".format(acc),"%")
             #st.write(model.coef_)
 
 # with col4:
